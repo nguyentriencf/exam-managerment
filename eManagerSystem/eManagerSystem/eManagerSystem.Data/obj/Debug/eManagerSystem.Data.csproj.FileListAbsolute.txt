@@ -1,0 +1,14 @@
+C:\Users\ADMIN\OneDrive\Desktop\sever\exam-management-system-server\eManagerSystem\eManagerSystem\eManagerSystem.Data\bin\Debug\eManagerSystem.Data.dll.config
+C:\Users\ADMIN\OneDrive\Desktop\sever\exam-management-system-server\eManagerSystem\eManagerSystem\eManagerSystem.Data\bin\Debug\eManagerSystem.Data.dll
+C:\Users\ADMIN\OneDrive\Desktop\sever\exam-management-system-server\eManagerSystem\eManagerSystem\eManagerSystem.Data\bin\Debug\eManagerSystem.Data.pdb
+C:\Users\ADMIN\OneDrive\Desktop\sever\exam-management-system-server\eManagerSystem\eManagerSystem\eManagerSystem.Data\bin\Debug\EntityFramework.dll
+C:\Users\ADMIN\OneDrive\Desktop\sever\exam-management-system-server\eManagerSystem\eManagerSystem\eManagerSystem.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ADMIN\OneDrive\Desktop\sever\exam-management-system-server\eManagerSystem\eManagerSystem\eManagerSystem.Data\bin\Debug\EntityFramework.xml
+C:\Users\ADMIN\OneDrive\Desktop\sever\exam-management-system-server\eManagerSystem\eManagerSystem\eManagerSystem.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ADMIN\OneDrive\Desktop\sever\exam-management-system-server\eManagerSystem\eManagerSystem\eManagerSystem.Data\obj\Debug\eManagerSystem.Data.csprojAssemblyReference.cache
+C:\Users\ADMIN\OneDrive\Desktop\sever\exam-management-system-server\eManagerSystem\eManagerSystem\eManagerSystem.Data\obj\Debug\eManagerSystem.Data.Migrations.StudentDBv1.resources
+C:\Users\ADMIN\OneDrive\Desktop\sever\exam-management-system-server\eManagerSystem\eManagerSystem\eManagerSystem.Data\obj\Debug\eManagerSystem.Data.csproj.GenerateResource.cache
+C:\Users\ADMIN\OneDrive\Desktop\sever\exam-management-system-server\eManagerSystem\eManagerSystem\eManagerSystem.Data\obj\Debug\eManagerSystem.Data.csproj.CoreCompileInputs.cache
+C:\Users\ADMIN\OneDrive\Desktop\sever\exam-management-system-server\eManagerSystem\eManagerSystem\eManagerSystem.Data\obj\Debug\eManagerSystem.Data.csproj.CopyComplete
+C:\Users\ADMIN\OneDrive\Desktop\sever\exam-management-system-server\eManagerSystem\eManagerSystem\eManagerSystem.Data\obj\Debug\eManagerSystem.Data.dll
+C:\Users\ADMIN\OneDrive\Desktop\sever\exam-management-system-server\eManagerSystem\eManagerSystem\eManagerSystem.Data\obj\Debug\eManagerSystem.Data.pdb

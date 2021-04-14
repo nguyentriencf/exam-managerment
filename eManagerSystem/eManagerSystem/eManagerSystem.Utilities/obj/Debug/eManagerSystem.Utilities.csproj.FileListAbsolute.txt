@@ -1,0 +1,6 @@
+C:\Users\ADMIN\OneDrive\Desktop\sever\exam-management-system-server\eManagerSystem\eManagerSystem\eManagerSystem.Utilities\bin\Debug\eManagerSystem.Utilities.dll
+C:\Users\ADMIN\OneDrive\Desktop\sever\exam-management-system-server\eManagerSystem\eManagerSystem\eManagerSystem.Utilities\bin\Debug\eManagerSystem.Utilities.pdb
+C:\Users\ADMIN\OneDrive\Desktop\sever\exam-management-system-server\eManagerSystem\eManagerSystem\eManagerSystem.Utilities\obj\Debug\eManagerSystem.Utilities.csprojAssemblyReference.cache
+C:\Users\ADMIN\OneDrive\Desktop\sever\exam-management-system-server\eManagerSystem\eManagerSystem\eManagerSystem.Utilities\obj\Debug\eManagerSystem.Utilities.csproj.CoreCompileInputs.cache
+C:\Users\ADMIN\OneDrive\Desktop\sever\exam-management-system-server\eManagerSystem\eManagerSystem\eManagerSystem.Utilities\obj\Debug\eManagerSystem.Utilities.dll
+C:\Users\ADMIN\OneDrive\Desktop\sever\exam-management-system-server\eManagerSystem\eManagerSystem\eManagerSystem.Utilities\obj\Debug\eManagerSystem.Utilities.pdb
