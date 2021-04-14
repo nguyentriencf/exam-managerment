@@ -1,0 +1,36 @@
+C:\Users\ADMIN\OneDrive\Desktop\New folder (2)\exam-management-system-client\eManagerSystemClient\eManagerSystemClient\clientForm\bin\Debug\clientForm.exe.config
+C:\Users\ADMIN\OneDrive\Desktop\New folder (2)\exam-management-system-client\eManagerSystemClient\eManagerSystemClient\clientForm\bin\Debug\clientForm.exe
+C:\Users\ADMIN\OneDrive\Desktop\New folder (2)\exam-management-system-client\eManagerSystemClient\eManagerSystemClient\clientForm\bin\Debug\clientForm.pdb
+C:\Users\ADMIN\OneDrive\Desktop\New folder (2)\exam-management-system-client\eManagerSystemClient\eManagerSystemClient\clientForm\obj\Debug\clientForm.csprojAssemblyReference.cache
+C:\Users\ADMIN\OneDrive\Desktop\New folder (2)\exam-management-system-client\eManagerSystemClient\eManagerSystemClient\clientForm\obj\Debug\clientForm.Form1.resources
+C:\Users\ADMIN\OneDrive\Desktop\New folder (2)\exam-management-system-client\eManagerSystemClient\eManagerSystemClient\clientForm\obj\Debug\clientForm.Properties.Resources.resources
+C:\Users\ADMIN\OneDrive\Desktop\New folder (2)\exam-management-system-client\eManagerSystemClient\eManagerSystemClient\clientForm\obj\Debug\clientForm.csproj.GenerateResource.cache
+C:\Users\ADMIN\OneDrive\Desktop\New folder (2)\exam-management-system-client\eManagerSystemClient\eManagerSystemClient\clientForm\obj\Debug\clientForm.csproj.CoreCompileInputs.cache
+C:\Users\ADMIN\OneDrive\Desktop\New folder (2)\exam-management-system-client\eManagerSystemClient\eManagerSystemClient\clientForm\obj\Debug\clientForm.exe
+C:\Users\ADMIN\OneDrive\Desktop\New folder (2)\exam-management-system-client\eManagerSystemClient\eManagerSystemClient\clientForm\obj\Debug\clientForm.pdb
+C:\Users\ADMIN\OneDrive\Desktop\client\exam-management-system-client\eManagerSystemClient\eManagerSystemClient\clientForm\bin\Debug\clientForm.exe.config
+C:\Users\ADMIN\OneDrive\Desktop\client\exam-management-system-client\eManagerSystemClient\eManagerSystemClient\clientForm\bin\Debug\clientForm.exe
+C:\Users\ADMIN\OneDrive\Desktop\client\exam-management-system-client\eManagerSystemClient\eManagerSystemClient\clientForm\bin\Debug\clientForm.pdb
+C:\Users\ADMIN\OneDrive\Desktop\client\exam-management-system-client\eManagerSystemClient\eManagerSystemClient\clientForm\obj\Debug\clientForm.csprojAssemblyReference.cache
+C:\Users\ADMIN\OneDrive\Desktop\client\exam-management-system-client\eManagerSystemClient\eManagerSystemClient\clientForm\obj\Debug\clientForm.Properties.Resources.resources
+C:\Users\ADMIN\OneDrive\Desktop\client\exam-management-system-client\eManagerSystemClient\eManagerSystemClient\clientForm\obj\Debug\clientForm.csproj.GenerateResource.cache
+C:\Users\ADMIN\OneDrive\Desktop\client\exam-management-system-client\eManagerSystemClient\eManagerSystemClient\clientForm\obj\Debug\clientForm.csproj.CoreCompileInputs.cache
+C:\Users\ADMIN\OneDrive\Desktop\client\exam-management-system-client\eManagerSystemClient\eManagerSystemClient\clientForm\obj\Debug\clientForm.exe
+C:\Users\ADMIN\OneDrive\Desktop\client\exam-management-system-client\eManagerSystemClient\eManagerSystemClient\clientForm\obj\Debug\clientForm.pdb
+C:\Users\ADMIN\OneDrive\Desktop\client\exam-management-system-client\eManagerSystemClient\eManagerSystemClient\clientForm\obj\Debug\clientForm.Client.resources
+C:\Users\ADMIN\OneDrive\Desktop\client\exam-management-system-client\eManagerSystemClient\eManagerSystemClient\clientForm\bin\Debug\eManagerSystem.Application.dll
+C:\Users\ADMIN\OneDrive\Desktop\client\exam-management-system-client\eManagerSystemClient\eManagerSystemClient\clientForm\bin\Debug\eManagerSystem.Application.pdb
+C:\Users\ADMIN\OneDrive\Desktop\client\exam-management-system-client\eManagerSystemClient\eManagerSystemClient\clientForm\obj\Debug\clientForm.csproj.CopyComplete
+C:\Users\ADMIN\OneDrive\Desktop\exam-managerment\exam-managerment\eManagerSystemClient\eManagerSystemClient\clientForm\bin\Debug\clientForm.exe.config
+C:\Users\ADMIN\OneDrive\Desktop\exam-managerment\exam-managerment\eManagerSystemClient\eManagerSystemClient\clientForm\bin\Debug\clientForm.exe
+C:\Users\ADMIN\OneDrive\Desktop\exam-managerment\exam-managerment\eManagerSystemClient\eManagerSystemClient\clientForm\bin\Debug\clientForm.pdb
+C:\Users\ADMIN\OneDrive\Desktop\exam-managerment\exam-managerment\eManagerSystemClient\eManagerSystemClient\clientForm\bin\Debug\eManagerSystem.Application.dll
+C:\Users\ADMIN\OneDrive\Desktop\exam-managerment\exam-managerment\eManagerSystemClient\eManagerSystemClient\clientForm\bin\Debug\eManagerSystem.Application.pdb
+C:\Users\ADMIN\OneDrive\Desktop\exam-managerment\exam-managerment\eManagerSystemClient\eManagerSystemClient\clientForm\obj\Debug\clientForm.csprojAssemblyReference.cache
+C:\Users\ADMIN\OneDrive\Desktop\exam-managerment\exam-managerment\eManagerSystemClient\eManagerSystemClient\clientForm\obj\Debug\clientForm.Client.resources
+C:\Users\ADMIN\OneDrive\Desktop\exam-managerment\exam-managerment\eManagerSystemClient\eManagerSystemClient\clientForm\obj\Debug\clientForm.Properties.Resources.resources
+C:\Users\ADMIN\OneDrive\Desktop\exam-managerment\exam-managerment\eManagerSystemClient\eManagerSystemClient\clientForm\obj\Debug\clientForm.csproj.GenerateResource.cache
+C:\Users\ADMIN\OneDrive\Desktop\exam-managerment\exam-managerment\eManagerSystemClient\eManagerSystemClient\clientForm\obj\Debug\clientForm.csproj.CoreCompileInputs.cache
+C:\Users\ADMIN\OneDrive\Desktop\exam-managerment\exam-managerment\eManagerSystemClient\eManagerSystemClient\clientForm\obj\Debug\clientForm.csproj.CopyComplete
+C:\Users\ADMIN\OneDrive\Desktop\exam-managerment\exam-managerment\eManagerSystemClient\eManagerSystemClient\clientForm\obj\Debug\clientForm.exe
+C:\Users\ADMIN\OneDrive\Desktop\exam-managerment\exam-managerment\eManagerSystemClient\eManagerSystemClient\clientForm\obj\Debug\clientForm.pdb

@@ -22,12 +22,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eManagerSystem.Application"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormServer", "FormServer\FormServer.csproj", "{EDCB8F0B-C6DF-4B5C-BB46-0E2E62BE2458}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "clientForm", "..\..\..\..\client\exam-management-system-client\eManagerSystemClient\eManagerSystemClient\clientForm\clientForm.csproj", "{6AF199B3-6423-4690-B1F5-AF603F3A82D1}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C28075E9-3719-4EEC-B0D5-26C91D2B6734}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "clientForm", "..\eManagerSystemClient\eManagerSystemClient\clientForm\clientForm.csproj", "{6AF199B3-6423-4690-B1F5-AF603F3A82D1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
