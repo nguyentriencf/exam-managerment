@@ -41,9 +41,11 @@
             this.button9 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.cbChonMonThi = new System.Windows.Forms.ComboBox();
             this.cmdChapNhan = new System.Windows.Forms.Button();
             this.txtThoiGianLamBai = new System.Windows.Forms.TextBox();
             this.MainGroupBox = new System.Windows.Forms.GroupBox();
+            this.flowLayoutContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.cmdChonClientPath = new System.Windows.Forms.Button();
             this.cmdChon = new System.Windows.Forms.Button();
@@ -58,8 +60,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
             this.lstDeThi = new System.Windows.Forms.ListBox();
-            this.flowLayoutContainer = new System.Windows.Forms.FlowLayoutPanel();
-            this.cbChonMonThi = new System.Windows.Forms.ComboBox();
             this.groupBox4.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -181,6 +181,7 @@
             this.button9.TabIndex = 40;
             this.button9.Text = "Lấy Danh Sách Thi Từ File";
             this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // button4
             // 
@@ -202,6 +203,15 @@
             this.groupBox5.TabIndex = 52;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Chọn Môn Thi và Thời Gian Làm Bài";
+            // 
+            // cbChonMonThi
+            // 
+            this.cbChonMonThi.FormattingEnabled = true;
+            this.cbChonMonThi.Location = new System.Drawing.Point(11, 25);
+            this.cbChonMonThi.Name = "cbChonMonThi";
+            this.cbChonMonThi.Size = new System.Drawing.Size(204, 21);
+            this.cbChonMonThi.TabIndex = 30;
+            this.cbChonMonThi.Click += new System.EventHandler(this.cbChonMonThi_Click);
             // 
             // cmdChapNhan
             // 
@@ -231,6 +241,14 @@
             this.MainGroupBox.TabIndex = 51;
             this.MainGroupBox.TabStop = false;
             this.MainGroupBox.Text = "Danh Sách Các Máy Tính Trong Phòng Máy";
+            // 
+            // flowLayoutContainer
+            // 
+            this.flowLayoutContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutContainer.Location = new System.Drawing.Point(3, 16);
+            this.flowLayoutContainer.Name = "flowLayoutContainer";
+            this.flowLayoutContainer.Size = new System.Drawing.Size(860, 454);
+            this.flowLayoutContainer.TabIndex = 0;
             // 
             // groupBox3
             // 
@@ -377,23 +395,6 @@
             this.lstDeThi.Name = "lstDeThi";
             this.lstDeThi.Size = new System.Drawing.Size(240, 108);
             this.lstDeThi.TabIndex = 30;
-            // 
-            // flowLayoutContainer
-            // 
-            this.flowLayoutContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutContainer.Location = new System.Drawing.Point(3, 16);
-            this.flowLayoutContainer.Name = "flowLayoutContainer";
-            this.flowLayoutContainer.Size = new System.Drawing.Size(860, 454);
-            this.flowLayoutContainer.TabIndex = 0;
-            // 
-            // cbChonMonThi
-            // 
-            this.cbChonMonThi.FormattingEnabled = true;
-            this.cbChonMonThi.Location = new System.Drawing.Point(11, 25);
-            this.cbChonMonThi.Name = "cbChonMonThi";
-            this.cbChonMonThi.Size = new System.Drawing.Size(204, 21);
-            this.cbChonMonThi.TabIndex = 30;
-            this.cbChonMonThi.Click += new System.EventHandler(this.cbChonMonThi_Click);
             // 
             // Server
             // 

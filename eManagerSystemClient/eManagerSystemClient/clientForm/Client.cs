@@ -37,10 +37,11 @@ namespace clientForm
             int minute = counter / 60;
             int second = counter % 60;
             SetCounter(minute, second);
-            if (counter == 0 )
+
+            if (counter == 0)
             {
-               
-               
+
+
                 countdown.Stop();
                 FinishExam();
                 Close();
@@ -254,7 +255,18 @@ namespace clientForm
 
         private void cmdKetNoi_Click(object sender, EventArgs e)
         {
-            Connect();
+            try
+            {
+                Connect();
+                MessageBox.Show("Kết nối Server thành công");
+            }
+            catch 
+            {
+
+                MessageBox.Show("Kết nối Server thất bại");
+            }
+           
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
