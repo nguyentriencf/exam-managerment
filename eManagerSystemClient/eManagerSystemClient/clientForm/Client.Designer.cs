@@ -148,18 +148,16 @@
             this.lblThoiGianConLai.AutoSize = true;
             this.lblThoiGianConLai.Location = new System.Drawing.Point(126, 141);
             this.lblThoiGianConLai.Name = "lblThoiGianConLai";
-            this.lblThoiGianConLai.Size = new System.Drawing.Size(43, 13);
+            this.lblThoiGianConLai.Size = new System.Drawing.Size(0, 13);
             this.lblThoiGianConLai.TabIndex = 1;
-            this.lblThoiGianConLai.Text = "35 phút";
             // 
             // lblThoiGian
             // 
             this.lblThoiGian.AutoSize = true;
             this.lblThoiGian.Location = new System.Drawing.Point(126, 93);
             this.lblThoiGian.Name = "lblThoiGian";
-            this.lblThoiGian.Size = new System.Drawing.Size(49, 13);
+            this.lblThoiGian.Size = new System.Drawing.Size(0, 13);
             this.lblThoiGian.TabIndex = 1;
-            this.lblThoiGian.Text = "120 phút";
             // 
             // lblMonThi
             // 

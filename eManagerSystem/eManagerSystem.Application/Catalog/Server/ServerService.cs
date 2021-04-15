@@ -75,24 +75,61 @@ namespace eManagerSystem.Application.Catalog.Server
         }
        
 
-        public void  Receive(object obj)
+        public void  Receive(object socket)
         {
-            Socket client = obj as Socket;
+             var client =  socket as Socket;
             try
             {
                 while (true)
                 {
+
                     byte[] data = new byte[1024 * 5000];
-                    client.Receive(data);             
-                }   
+                        client.Receive(data);
+                        ServerReponse serverReponse = new ServerReponse();
+                        serverReponse = (ServerReponse)Deserialize(data);
+                        switch (serverReponse.Type)
+                        {
+                            case ServerResponseType.SendFile:
+                                byte[] receiveBylength = (byte[])serverReponse.DataResponse;
+                                string nameLink = SaveFile(receiveBylength, receiveBylength.Length);
+
+                                break;
+
+                            default:
+                                break;
+                        }
+                    }
+                  
+                
             }
-            catch
+            catch (Exception er)
             {
-                clientList.Remove(client);
-                client.Close();
+                //throw er;
+                 Close();
             }
         }
-     
+        public string SaveFile(byte[] data, int dataLength)
+        {
+            string pathSave = "D:/receive/";
+            int fileNameLength = BitConverter.ToInt32(data, 0);
+            string nameFile = Encoding.ASCII.GetString(data, 4, fileNameLength);
+            string nameFolder = Path.GetFileName(nameFile);
+            string root = pathSave + nameFolder;
+            if (!Directory.Exists(root))
+            {
+                Directory.CreateDirectory(root);
+            }
+            foreach ( string Files in Directory.EnumerateFiles(nameFile))
+            {
+                string name = root + "/" + Path.GetFileName(Files);
+            BinaryWriter writer = new BinaryWriter(File.Open(name, FileMode.Append));
+                int count = dataLength - 4 - fileNameLength;
+                writer.Write(data, 4 + fileNameLength, count);
+            }
+            return  "ok" ;
+        }
+
+
 
         public void Close()
         {
@@ -123,8 +160,8 @@ namespace eManagerSystem.Application.Catalog.Server
         {
             MemoryStream stream = new MemoryStream(data);
             BinaryFormatter formatter = new BinaryFormatter();
-            formatter.Deserialize(stream);
-            return stream;
+          return  formatter.Deserialize(stream);
+           
         }
         public int BeginExam(string inputTime, int counter, System.Timers.Timer countdown)
         {

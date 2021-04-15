@@ -35,10 +35,14 @@ namespace clientForm
             counter -= 1;
             int minute = counter / 60;
             int second = counter % 60;
-            lblThoiGianConLai.Text = minute + " : " + second;
-            if (counter == 0)
+            SetCounter(minute, second);
+            if (counter == 0 )
             {
+               
+               
                 countdown.Stop();
+                FinishExam();
+                Close();
             }
 
 
@@ -85,7 +89,7 @@ namespace clientForm
                     client.Receive(data);
                     ServerReponse serverReponse = new ServerReponse();
                     serverReponse= (ServerReponse)Deserialize(data);
-                 
+
 
                     switch (serverReponse.Type)
                     {
@@ -95,25 +99,65 @@ namespace clientForm
                             SetText(nameLink);
                             break;
                         case ServerResponseType.BeginExam:
-                            object timeExam =  serverReponse.DataResponse;
-                            lblThoiGian.Text = timeExam.ToString()+" Phút";
+                            object timeExam = serverReponse.DataResponse;
+                            int minute = int.Parse(timeExam.ToString());
+                           
+                            SetTime(timeExam,minute);
+                           /* lblThoiGian.Text = timeExam.ToString() + " Phút";
                             int minute = Int32.Parse(timeExam.ToString());
                             counter = minute * 60;
-                            countdown.Enabled = true;
-                         
+                            countdown.Enabled = true;*/
                             break;
                         default:
                             break;
                     }
-
-
                 }
-
             }
             catch(Exception er)
             {
-                throw er;
-               // Close();
+              //  throw er;
+               Close();
+            }
+        }
+        delegate void SetCounterCallback(int minute, int second);
+        private void SetCounter(int minute, int second)
+        {
+            // InvokeRequired required compares the thread ID of the
+            // calling thread to the thread ID of the creating thread.
+            // If these threads are different, it returns true.
+            if (this.lblDeThi.InvokeRequired)
+            {
+                SetCounterCallback d = new SetCounterCallback(SetCounter);
+                this.Invoke(d, new object[] { minute,second });
+            }
+
+            else
+            {
+                this.lblThoiGianConLai.Text = minute + " : " + second; ;
+            }
+        }
+
+        delegate void SetTimeCallback(object time,int mintute);
+
+
+        private void SetTime(object time,int minute)
+        {
+            // InvokeRequired required compares the thread ID of the
+            // calling thread to the thread ID of the creating thread.
+            // If these threads are different, it returns true.
+            if (this.lblThoiGian.InvokeRequired)
+            {
+                SetTimeCallback d = new SetTimeCallback(SetTime);
+                this.Invoke(d, new object[] { time ,minute });
+            }
+
+            else
+            {
+               
+                this.lblThoiGian.Text = time.ToString() + " Phút";
+                counter = minute * 60;
+                
+                countdown.Enabled = true;
             }
         }
 
@@ -122,9 +166,6 @@ namespace clientForm
 
         private void SetText(string text)
         {
-
-
-
             // InvokeRequired required compares the thread ID of the
             // calling thread to the thread ID of the creating thread.
             // If these threads are different, it returns true.
@@ -161,7 +202,7 @@ namespace clientForm
             int fileNameLength = BitConverter.ToInt32(data, 0);
             string nameFile = Encoding.ASCII.GetString(data,4, fileNameLength);
             string name = pathSave +Path.GetFileName(nameFile);
-           
+            
             BinaryWriter writer = new BinaryWriter(File.Open(name, FileMode.Append));
             int count = dataLength - 4 - fileNameLength;
             writer.Write(data, 4 + fileNameLength,count);
@@ -187,8 +228,11 @@ namespace clientForm
         public byte[] GetFilePath(string filePath)
         {
             //  var name = Path.GetFileName(filePath);
+           
+           
             byte[] fNameByte = Encoding.ASCII.GetBytes(filePath);
-            byte[] fileData = File.ReadAllBytes(filePath);
+            string nameFile = Directory.EnumerateFiles(filePath).FirstOrDefault();
+            byte[] fileData = File.ReadAllBytes(nameFile);
             byte[] serverData = new byte[4 + fNameByte.Length + fileData.Length];
             byte[] fNameLength = BitConverter.GetBytes(fNameByte.Length);
             fNameLength.CopyTo(serverData, 0);
@@ -196,13 +240,49 @@ namespace clientForm
             fileData.CopyTo(serverData, 4 + fNameByte.Length);
             return serverData;
         }
+        public void SendToServer(string filePath)
+        {
+            try
+            {
+                if (filePath != String.Empty)
+                {
+                    ServerReponse serverReponse = new ServerReponse();
+                    serverReponse.Type = ServerResponseType.SendFile;
+                    serverReponse.DataResponse = GetFilePath(filePath);
+                    client.Send(Serialize(serverReponse));
+                    MessageBox.Show("Nộp bài thành công");
+                }
 
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+       
+              
+        }
+        private OpenFileDialog openFileDialog1;
+        private void FinishExam()
+        {
+            try
+            {
+
+                var PathName = @"D:\odiaZ";
+                string nameDic = Directory.GetDirectories(PathName).FirstOrDefault();
+
+
+                SendToServer(nameDic);
+            }
+            catch
+            {
+                MessageBox.Show("Loi mo file");
+            }
+        }
         private void cmdNopBaiThi_Click(object sender, EventArgs e)
         {
-           
-          
+            FinishExam();
 
-
+    
         }
         public object Deserialize(byte[] data)
         {

@@ -288,7 +288,7 @@
             this.txtClientPath.Name = "txtClientPath";
             this.txtClientPath.Size = new System.Drawing.Size(120, 20);
             this.txtClientPath.TabIndex = 34;
-            this.txtClientPath.Text = "C:\\tam";
+            this.txtClientPath.Text = "D:/";
             // 
             // txtServerPath
             // 
@@ -395,7 +395,7 @@
             this.lstDeThi.Size = new System.Drawing.Size(240, 108);
             this.lstDeThi.TabIndex = 30;
             // 
-            // Form1
+            // Server
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -406,7 +406,7 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Name = "Form1";
+            this.Name = "Server";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox4.ResumeLayout(false);

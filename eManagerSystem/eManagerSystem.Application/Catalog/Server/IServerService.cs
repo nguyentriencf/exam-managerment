@@ -15,7 +15,7 @@ namespace eManagerSystem.Application.Catalog.Server
         void Connect();
          void Send(string filePath);
 
-        void Receive(object obj);
+        void Receive(object sọcket);
 
         void Close();
 
@@ -23,8 +23,8 @@ namespace eManagerSystem.Application.Catalog.Server
 
         object Deserialize(byte[] data);
         byte[] Serialize(object data);
-      
 
+        string SaveFile(byte[] data, int dataLength);
         int BeginExam(string inputTime, int counter, System.Timers.Timer countdown);
     }
 }

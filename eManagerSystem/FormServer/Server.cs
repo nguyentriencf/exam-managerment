@@ -43,12 +43,14 @@ namespace FormServer
             if (counter == 0)
             {
                 countdown.Stop();
+                cmdBatDauLamBai.Visible = false;
             }
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             _server.Connect();
+          
         }
 
         private void cmdBatDauLamBai_Click(object sender, EventArgs e)
@@ -78,5 +80,7 @@ namespace FormServer
         {
             cmdBatDauLamBai.Visible = true;
         }
+
+     
     }
 }
