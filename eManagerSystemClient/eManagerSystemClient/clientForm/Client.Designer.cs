@@ -260,6 +260,7 @@
             this.cmdChapNhan.TabIndex = 1;
             this.cmdChapNhan.Text = "Chấp Nhận";
             this.cmdChapNhan.UseVisualStyleBackColor = true;
+            this.cmdChapNhan.Click += new System.EventHandler(this.cmdChapNhan_Click);
             // 
             // cbDSThi
             // 
@@ -268,6 +269,7 @@
             this.cbDSThi.Name = "cbDSThi";
             this.cbDSThi.Size = new System.Drawing.Size(259, 21);
             this.cbDSThi.TabIndex = 0;
+            this.cbDSThi.SelectedIndexChanged += new System.EventHandler(this.cbDSThi_SelectedIndexChanged);
             // 
             // Client
             // 

@@ -44,7 +44,10 @@
     <Compile Include="Catalog\Commom\ServerReponse.cs" />
     <Compile Include="Catalog\Server\IServerService.cs" />
     <Compile Include="Catalog\Server\ServerService.cs" />
+    <Compile Include="Grade.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Students.cs" />
+    <Compile Include="Subject.cs" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />

@@ -61,6 +61,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="OpenDSSV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OpenDSSV.Designer.cs">
+      <DependentUpon>OpenDSSV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PC.Designer.cs">
+      <DependentUpon>PC.cs</DependentUpon>
+    </Compile>
     <Compile Include="Server.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +81,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="OpenDSSV.resx">
+      <DependentUpon>OpenDSSV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PC.resx">
+      <DependentUpon>PC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Server.resx">
       <DependentUpon>Server.cs</DependentUpon>
     </EmbeddedResource>

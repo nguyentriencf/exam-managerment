@@ -9,6 +9,8 @@ using System.Net.Sockets;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using eManagerSystem.Application.Catalog.Commom;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace eManagerSystem.Application.Catalog.Server
 {
@@ -22,7 +24,9 @@ namespace eManagerSystem.Application.Catalog.Server
         Socket server;
         List<Socket> clientList;
         ServerReponse serverReponse = new ServerReponse();
+        private readonly string strCon = @"SERVER=DESKTOP-UPDAPIH\SQLEXPRESS01;Database=ExamManagernent;Integrated security =true";
 
+   
 
         public void Connect()
         {
@@ -91,11 +95,15 @@ namespace eManagerSystem.Application.Catalog.Server
                         {
                             case ServerResponseType.SendFile:
                                 byte[] receiveBylength = (byte[])serverReponse.DataResponse;
-                                string nameLink = SaveFile(receiveBylength, receiveBylength.Length);
+                               SaveFile(receiveBylength, receiveBylength.Length);
 
                                 break;
+                        case ServerResponseType.SendAcceptUser:
+                            var mssv = (string)serverReponse.DataResponse;
+                            Updates(mssv);
+                            break;
 
-                            default:
+                        default:
                                 break;
                         }
                     }
@@ -108,7 +116,7 @@ namespace eManagerSystem.Application.Catalog.Server
                  Close();
             }
         }
-        public string SaveFile(byte[] data, int dataLength)
+        public void SaveFile(byte[] data, int dataLength)
         {
             string pathSave = "D:/receive/";
             int fileNameLength = BitConverter.ToInt32(data, 0);
@@ -126,7 +134,7 @@ namespace eManagerSystem.Application.Catalog.Server
                 int count = dataLength - 4 - fileNameLength;
                 writer.Write(data, 4 + fileNameLength, count);
             }
-            return  "ok" ;
+        
         }
 
 
@@ -189,7 +197,131 @@ namespace eManagerSystem.Application.Catalog.Server
             }
             return counter;
         }
+        private void hasParameter(SqlCommand cmd, string query, object[] para = null)
+        {
+            int i = 0;
+            foreach (string parameter in query.Split(' ').ToArray().Where(p => p.Contains('@')))
+            {
+                cmd.Parameters.AddWithValue(parameter, para[i]);
+
+                i++;
+            }
+        }
+        public DataTable ExcuteDataReader(string query, object[] para = null)
+        {
+            try
+            {
+                DataTable data = new DataTable();
+                using (SqlConnection conn = new SqlConnection(strCon))
+                {
+
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    if (para != null)
+                    {
+
+                        {
+                            hasParameter(cmd, query, para);
+                        }
+
+                    }
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    adapter.Fill(data);
 
 
+                }
+                return data;
+            }
+            catch (Exception err)
+            {
+                throw err;
+            }
+
+        }
+
+        public IEnumerable<Students> readAll(int gradeId)
+        {
+            DataTable dataTable = ExcuteDataReader("usp_getAllStudentBySubject @gradeId", new object[] { gradeId });
+            List<Students> listStudents = new List<Students>();
+            foreach (DataRow row in dataTable.Rows)
+            {
+                Students students = new Students(row);
+                listStudents.Add(students);
+
+            }
+            return listStudents;
+        }
+
+        public List<Students> ReadAll(int gradeId)
+        {
+            return (List<Students>)readAll(gradeId);
+        }
+
+        public IEnumerable<Grade> getAllGrade()
+        {
+            DataTable dataTable = ExcuteDataReader("usp_getGrade");
+            List<Grade> listGrades = new List<Grade>();
+            foreach (DataRow row in dataTable.Rows)
+            {
+                Grade grades = new Grade(row);
+                listGrades.Add(grades);
+
+            }
+            return listGrades;
+        }
+
+        public void SendUser( List<Students> students)
+        {
+            foreach (Socket client in clientList)
+            {
+                            
+                    serverReponse.Type = ServerResponseType.SendStudent;
+                    serverReponse.DataResponse = students;
+                    client.Send(Serialize(serverReponse));
+                   
+                
+            }
+        }
+
+        public void SendSubject(string subject)
+        {
+            foreach (Socket client in clientList)
+            {
+                if (subject != String.Empty)
+                {
+                    serverReponse.Type = ServerResponseType.SendSubject;
+                    serverReponse.DataResponse = subject;             
+                    client.Send(Serialize(serverReponse));
+                }
+            }
+        }
+
+        public IEnumerable<Subject> getAllSubject()
+        {
+            DataTable dataTable = ExcuteDataReader("usp_getSubjects");
+            List<Subject> listSubject = new List<Subject>();
+            foreach (DataRow row in dataTable.Rows)
+            {
+                Subject subject = new Subject(row);
+                listSubject.Add(subject);
+
+            }
+            return (IEnumerable<Subject>)listSubject;
+        }
+        public delegate void UpdateHandler(object sender, UpdateEventArgs args);
+        public event UpdateHandler EventUpdateHandler;
+        public class UpdateEventArgs : EventArgs
+        {
+            public string mssv { get; set; }
+
+        }
+        public void Updates(string MSSV)
+        {
+            UpdateEventArgs args = new UpdateEventArgs();
+
+            args.mssv = MSSV;
+            EventUpdateHandler.Invoke(this, args);
+
+
+        }
     }
 }

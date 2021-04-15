@@ -32,7 +32,8 @@ namespace FormServer
         {
             services.AddScoped<Server>()
                 .AddTransient<IServerService,ServerService>();
-                   
+            services.AddScoped<OpenDSSV>()
+       .AddTransient<IServerService, ServerService>();
         }
     }
 }

@@ -43,9 +43,7 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.cmdChapNhan = new System.Windows.Forms.Button();
             this.txtThoiGianLamBai = new System.Windows.Forms.TextBox();
-            this.txtMonThi = new System.Windows.Forms.TextBox();
             this.MainGroupBox = new System.Windows.Forms.GroupBox();
-            this.lsvMessage = new System.Windows.Forms.ListView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.cmdChonClientPath = new System.Windows.Forms.Button();
             this.cmdChon = new System.Windows.Forms.Button();
@@ -60,6 +58,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
             this.lstDeThi = new System.Windows.Forms.ListBox();
+            this.flowLayoutContainer = new System.Windows.Forms.FlowLayoutPanel();
+            this.cbChonMonThi = new System.Windows.Forms.ComboBox();
             this.groupBox4.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -171,6 +171,7 @@
             this.button10.TabIndex = 40;
             this.button10.Text = "Lấy Danh Sách Thi Từ CSDL";
             this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // button9
             // 
@@ -192,9 +193,9 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.cbChonMonThi);
             this.groupBox5.Controls.Add(this.cmdChapNhan);
             this.groupBox5.Controls.Add(this.txtThoiGianLamBai);
-            this.groupBox5.Controls.Add(this.txtMonThi);
             this.groupBox5.Location = new System.Drawing.Point(664, 499);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(239, 150);
@@ -221,33 +222,15 @@
             this.txtThoiGianLamBai.Text = "120";
             this.txtThoiGianLamBai.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // txtMonThi
-            // 
-            this.txtMonThi.Location = new System.Drawing.Point(11, 21);
-            this.txtMonThi.Name = "txtMonThi";
-            this.txtMonThi.Size = new System.Drawing.Size(203, 20);
-            this.txtMonThi.TabIndex = 28;
-            this.txtMonThi.Text = "Chọn Môn Thi";
-            this.txtMonThi.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // MainGroupBox
             // 
-            this.MainGroupBox.Controls.Add(this.lsvMessage);
+            this.MainGroupBox.Controls.Add(this.flowLayoutContainer);
             this.MainGroupBox.Location = new System.Drawing.Point(184, 10);
             this.MainGroupBox.Name = "MainGroupBox";
             this.MainGroupBox.Size = new System.Drawing.Size(866, 473);
             this.MainGroupBox.TabIndex = 51;
             this.MainGroupBox.TabStop = false;
             this.MainGroupBox.Text = "Danh Sách Các Máy Tính Trong Phòng Máy";
-            // 
-            // lsvMessage
-            // 
-            this.lsvMessage.HideSelection = false;
-            this.lsvMessage.Location = new System.Drawing.Point(6, 19);
-            this.lsvMessage.Name = "lsvMessage";
-            this.lsvMessage.Size = new System.Drawing.Size(659, 274);
-            this.lsvMessage.TabIndex = 0;
-            this.lsvMessage.UseCompatibleStateImageBehavior = false;
             // 
             // groupBox3
             // 
@@ -395,6 +378,23 @@
             this.lstDeThi.Size = new System.Drawing.Size(240, 108);
             this.lstDeThi.TabIndex = 30;
             // 
+            // flowLayoutContainer
+            // 
+            this.flowLayoutContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutContainer.Location = new System.Drawing.Point(3, 16);
+            this.flowLayoutContainer.Name = "flowLayoutContainer";
+            this.flowLayoutContainer.Size = new System.Drawing.Size(860, 454);
+            this.flowLayoutContainer.TabIndex = 0;
+            // 
+            // cbChonMonThi
+            // 
+            this.cbChonMonThi.FormattingEnabled = true;
+            this.cbChonMonThi.Location = new System.Drawing.Point(11, 25);
+            this.cbChonMonThi.Name = "cbChonMonThi";
+            this.cbChonMonThi.Size = new System.Drawing.Size(204, 21);
+            this.cbChonMonThi.TabIndex = 30;
+            this.cbChonMonThi.Click += new System.EventHandler(this.cbChonMonThi_Click);
+            // 
             // Server
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -439,7 +439,6 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Button cmdChapNhan;
         private System.Windows.Forms.TextBox txtThoiGianLamBai;
-        private System.Windows.Forms.TextBox txtMonThi;
         private System.Windows.Forms.GroupBox MainGroupBox;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button cmdChonClientPath;
@@ -455,10 +454,11 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ListBox lstDeThi;
-        private System.Windows.Forms.ListView lsvMessage;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.Label lblTimeLeft;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutContainer;
+        private System.Windows.Forms.ComboBox cbChonMonThi;
     }
 }
 

@@ -15,7 +15,9 @@ namespace eManagerSystem.Application.Catalog.Commom
         SendString,
         BeginExam,
         FinishExam,
-        LockClient
+        LockClient,
+        SendSubject,
+       SendAcceptUser
     }
     [Serializable]
     public class ServerReponse

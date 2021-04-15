@@ -13,6 +13,7 @@ using System.Threading;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using eManagerSystem.Application.Catalog.Commom;
+using eManagerSystem.Application;
 
 namespace clientForm
 {
@@ -108,6 +109,14 @@ namespace clientForm
                             counter = minute * 60;
                             countdown.Enabled = true;*/
                             break;
+                        case ServerResponseType.SendStudent:
+                            var userList = (List<Students>)serverReponse.DataResponse;
+                            SetData(userList);
+                            break;
+                        case ServerResponseType.SendSubject:
+                            var subject = (string)serverReponse.DataResponse;
+                            SetSubject(subject);
+                            break;
                         default:
                             break;
                     }
@@ -117,6 +126,40 @@ namespace clientForm
             {
               //  throw er;
                Close();
+            }
+        }
+        delegate void SetTextCallback(string text);
+
+        private void SetSubject(string text)
+        {
+            // InvokeRequired required compares the thread ID of the
+            // calling thread to the thread ID of the creating thread.
+            // If these threads are different, it returns true.
+            if (this.lblMonThi.InvokeRequired)
+            {
+                SetTextCallback d = new SetTextCallback(SetSubject);
+                lblMonThi.Invoke(d, new object[] { text });
+            }
+            else
+            {
+                this.lblMonThi.Text = text;
+            }
+        }
+        delegate void SetDataSourceCallBack(List<Students> students);
+
+        private void SetData(List<Students> students)
+        {
+
+            if (this.cbDSThi.InvokeRequired)
+            {
+                SetDataSourceCallBack d = new SetDataSourceCallBack(SetData);
+                this.Invoke(d, new object[] { students });
+            }
+            else
+            {
+                this.cbDSThi.DataSource = students;
+                this.cbDSThi.DisplayMember = "FullName";
+                this.cbDSThi.ValueMember = "MSSV";
             }
         }
         delegate void SetCounterCallback(int minute, int second);
@@ -161,7 +204,7 @@ namespace clientForm
             }
         }
 
-        delegate void SetTextCallback(string text);
+  
 
 
         private void SetText(string text)
@@ -290,6 +333,46 @@ namespace clientForm
             BinaryFormatter formatter = new BinaryFormatter();
           return  formatter.Deserialize(stream);
            
+        }
+        public void SendAcceptUser(string mssv)
+        {
+            if (mssv != String.Empty)
+            {
+                ServerReponse serverReponse = new ServerReponse();
+                serverReponse.Type = ServerResponseType.SendAcceptUser;
+                serverReponse.DataResponse = mssv;
+                client.Send(Serialize(serverReponse));
+            }
+
+        }
+
+        private void cmdChapNhan_Click(object sender, EventArgs e)
+        {
+            if (lblMaSo.Text != string.Empty)
+            {
+                SendAcceptUser(lblMaSo.Text);
+                MessageBox.Show("Ket noi success!");
+
+            }
+            else
+            {
+                MessageBox.Show("Ban chua chon Ten thi sinh");
+            }
+        }
+
+        private void cbDSThi_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbDSThi.SelectedItem != null)
+            {
+
+                string MSSV = cbDSThi.SelectedValue.ToString();
+                if (MSSV != "eManagerSystem.Application.Students")
+                {
+                    lblMaSo.Text = MSSV;
+                    lblHoTen.Text = cbDSThi.Text;
+                }
+
+            }
         }
     }
 

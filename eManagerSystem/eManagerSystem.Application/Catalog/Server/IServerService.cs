@@ -5,12 +5,13 @@ using System.Net.Sockets;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using static eManagerSystem.Application.Catalog.Server.ServerService;
 
 namespace eManagerSystem.Application.Catalog.Server
 {
    public interface IServerService
     {
-       
+        event UpdateHandler EventUpdateHandler;
 
         void Connect();
          void Send(string filePath);
@@ -24,7 +25,15 @@ namespace eManagerSystem.Application.Catalog.Server
         object Deserialize(byte[] data);
         byte[] Serialize(object data);
 
-        string SaveFile(byte[] data, int dataLength);
+        void SendUser(List<Students> students);
+
+        void SendSubject(string subject);
+        List<Students> ReadAll(int gradeId);
+
+        IEnumerable<Grade> getAllGrade();
+
+        IEnumerable<Subject> getAllSubject();
+        void SaveFile(byte[] data, int dataLength);
         int BeginExam(string inputTime, int counter, System.Timers.Timer countdown);
     }
 }
