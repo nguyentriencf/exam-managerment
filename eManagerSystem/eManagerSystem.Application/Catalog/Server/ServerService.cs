@@ -11,6 +11,8 @@ using System.Runtime.Serialization.Formatters.Binary;
 using eManagerSystem.Application.Catalog.Commom;
 using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace eManagerSystem.Application.Catalog.Server
 {
@@ -98,11 +100,13 @@ namespace eManagerSystem.Application.Catalog.Server
                                SaveFile(receiveBylength, receiveBylength.Length);
 
                                 break;
-                        case ServerResponseType.SendAcceptUser:
+                             case ServerResponseType.SendAcceptUser:
                             string ipUser = client.RemoteEndPoint.ToString().Split(':')[0];
                             var mssv = (string)serverReponse.DataResponse;
                             Updates(mssv);
+                            
                             break;
+                            
 
                         default:
                                 break;
@@ -117,6 +121,7 @@ namespace eManagerSystem.Application.Catalog.Server
                  Close();
             }
         }
+
 
         public void SaveFile(byte[] data, int dataLength)
         {
@@ -369,5 +374,30 @@ namespace eManagerSystem.Application.Catalog.Server
             client.Send(Serialize(serverReponse));
             
         }
+
+        public void SendMessasge(string message, List<string>IPArea, ListView listMess)
+        {
+            foreach (Socket client in clientList)
+            {
+                string ipuser = client.RemoteEndPoint.ToString().Split(':')[0];
+
+                if (IPArea.Any(p => p == ipuser))
+                {
+                    serverReponse.Type = ServerResponseType.senMessage;
+                    serverReponse.DataResponse = message;
+                    client.Send(Serialize(serverReponse));
+                    AddMessage(message, listMess);
+                }
+                
+            }
+           
+        }
+
+        public void AddMessage(string ms, ListView listMess)
+        {
+            listMess.Items.Add(new ListViewItem() { Text = ms });
+        }
+
+    
     }
 }

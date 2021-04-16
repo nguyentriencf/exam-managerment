@@ -117,16 +117,35 @@ namespace FormServer
 
             }
         }
-        private void AddListUser(List<Students> students)
+        //private void AddListUser(List<Students> students)
+        //{
+        //    if (students.Count > 0)
+        //    {
+        //        int index = 0;
+        //        foreach (var items in students)
+        //        {
+        //            index++;
+        //            PC pC = new PC();
+
+        //            pC.MSSV = items.MSSV.ToString();
+        //            pC.pcName = index.ToString();
+        //            pC.ColorUser = ColorRed;
+        //            listUser.Add(pC);
+        //        }
+        //    }
+
+        //}
+        private void AddListUser(List<string> listArea)
         {
-            if (students.Count > 0)
+            if (listArea.Count > 0)
             {
                 int index = 0;
-                foreach (var items in students)
+                foreach (var items in listArea)
                 {
                     index++;
                     PC pC = new PC();
-                    pC.MSSV = items.MSSV.ToString();
+
+                    pC.MSSV = items.ToString();
                     pC.pcName = index.ToString();
                     pC.ColorUser = ColorRed;
                     listUser.Add(pC);
@@ -163,7 +182,7 @@ namespace FormServer
         private void Open_EventUpdateHandler(object sender, OpenDSSV.UpdateEventArgs args)
         {
             _students = args.studentsDelegate;
-            AddListUser(_students);
+            AddListUser(listIPArea);
             LoadDisPlayUser();
             _server.SendUser(_students);
         }
@@ -192,6 +211,12 @@ namespace FormServer
         private void InsertAreaIP_EventUpdateHandler(object sender, InsertAreaIP.UpdateEventArgs args)
         {
             listIPArea = args.listIp;
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            var messageToAll = new frmMessageToAll(_server, listIPArea);
+            messageToAll.Show();
         }
     }
 }

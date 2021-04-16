@@ -6,6 +6,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using static eManagerSystem.Application.Catalog.Server.ServerService;
+using System.Windows.Forms;
 
 namespace eManagerSystem.Application.Catalog.Server
 {
@@ -38,5 +39,7 @@ namespace eManagerSystem.Application.Catalog.Server
         void CheckActiveUser(List<string> list, Socket client, string mssv, string ip);
         void AcceptUserSuccess(string message, string ip, string mssv);
         void AcceptUserNotSuccess(Socket client, string message);
+        void SendMessasge(string message,List<string> IPArea, ListView listMess);
+        void AddMessage(string ms, ListView list);
     }
 }

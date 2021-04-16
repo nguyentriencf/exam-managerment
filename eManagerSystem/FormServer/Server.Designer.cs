@@ -154,6 +154,7 @@
             this.button6.TabIndex = 40;
             this.button6.Text = "Send Message To All";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button11
             // 

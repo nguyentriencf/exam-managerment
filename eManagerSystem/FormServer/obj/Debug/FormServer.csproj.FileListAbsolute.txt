@@ -24,3 +24,4 @@ C:\Users\ADMIN\OneDrive\Desktop\exam-managerment\exam-managerment\eManagerSystem
 C:\Users\ADMIN\OneDrive\Desktop\exam-managerment\exam-managerment\eManagerSystem\FormServer\obj\Debug\FormServer.OpenDSSV.resources
 C:\Users\ADMIN\OneDrive\Desktop\exam-managerment\exam-managerment\eManagerSystem\FormServer\obj\Debug\FormServer.PC.resources
 C:\Users\ADMIN\OneDrive\Desktop\exam-managerment\exam-managerment\eManagerSystem\FormServer\obj\Debug\FormServer.InsertAreaIP.resources
+C:\Users\ADMIN\OneDrive\Desktop\exam-managerment\exam-managerment\eManagerSystem\FormServer\obj\Debug\FormServer.frmMessageToAll.resources

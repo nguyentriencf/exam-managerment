@@ -9,6 +9,7 @@ namespace eManagerSystem.Application.Catalog.Commom
     [Serializable]
     public enum ServerResponseType
     {
+        senMessage,
         sendSuccess,
         sendFali,
         SendFile,
