@@ -61,6 +61,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InsertAreaIP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InsertAreaIP.Designer.cs">
+      <DependentUpon>InsertAreaIP.cs</DependentUpon>
+    </Compile>
     <Compile Include="OpenDSSV.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +87,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="InsertAreaIP.resx">
+      <DependentUpon>InsertAreaIP.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OpenDSSV.resx">
       <DependentUpon>OpenDSSV.cs</DependentUpon>
     </EmbeddedResource>

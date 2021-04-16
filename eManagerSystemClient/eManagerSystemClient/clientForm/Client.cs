@@ -54,8 +54,10 @@ namespace clientForm
         Socket client;
         public void Connect()
         {
+            string hostName = Dns.GetHostName();
+            string myIP = Dns.GetHostByName(hostName).AddressList[0].ToString();
 
-            IP = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9999);
+            IP = new IPEndPoint(IPAddress.Parse(myIP), 9999);
             client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             try
             {
@@ -346,13 +348,13 @@ namespace clientForm
           return  formatter.Deserialize(stream);
            
         }
-        public void SendAcceptUser(string mssv)
+        public void SendAcceptUser(string ipClient)
         {
-            if (mssv != String.Empty)
+            if (ipClient != String.Empty)
             {
                 ServerReponse serverReponse = new ServerReponse();
                 serverReponse.Type = ServerResponseType.SendAcceptUser;
-                serverReponse.DataResponse = mssv;
+                serverReponse.DataResponse = ipClient;
                 client.Send(Serialize(serverReponse));
             }
 

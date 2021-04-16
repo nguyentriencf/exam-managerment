@@ -99,6 +99,7 @@ namespace eManagerSystem.Application.Catalog.Server
 
                                 break;
                         case ServerResponseType.SendAcceptUser:
+                            string ipUser = client.RemoteEndPoint.ToString().Split(':')[0];
                             var mssv = (string)serverReponse.DataResponse;
                             Updates(mssv);
                             break;
@@ -116,6 +117,7 @@ namespace eManagerSystem.Application.Catalog.Server
                  Close();
             }
         }
+
         public void SaveFile(byte[] data, int dataLength)
         {
             string pathSave = "D:/receive/";
@@ -322,6 +324,50 @@ namespace eManagerSystem.Application.Catalog.Server
             EventUpdateHandler.Invoke(this, args);
 
 
+        }
+
+        public void CheckActiveUser(List<string> list, Socket client, string mssv, string ip)
+        {
+            foreach (var item in list)
+            {
+           
+                if (list.Any(p => p == item))
+                {
+                    string message = "Chấp nhận thành công";
+                    AcceptUserSuccess(message,ip,mssv);
+                }
+                else
+                {
+                    AcceptUserNotSuccess(client, "Từ chối chấp");
+                }
+            }
+        }
+
+        public void AcceptUserSuccess(string message, string ip, string mssv)
+        {
+          
+            foreach (Socket client in clientList)
+            {
+                string ipUser = client.RemoteEndPoint.ToString().Split(':')[0];
+            
+                if (ipUser == ip)
+                {
+                    serverReponse.Type = ServerResponseType.sendSuccess;
+                    serverReponse.DataResponse = message;
+                    client.Send(Serialize(serverReponse));
+                    Updates(mssv);
+                    break;
+                }
+
+            }
+        }
+
+        public void AcceptUserNotSuccess(Socket client, string message)
+        {
+            serverReponse.Type = ServerResponseType.sendFali;
+            serverReponse.DataResponse = message;
+            client.Send(Serialize(serverReponse));
+            
         }
     }
 }

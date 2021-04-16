@@ -39,8 +39,6 @@ namespace FormServer
 
         }
 
-
-
         public void Updates()
         {
             UpdateEventArgs args = new UpdateEventArgs();
@@ -78,9 +76,6 @@ namespace FormServer
                     dataGridView1.DataSource = _students;
 
                 }
-
-
-
             }
         }
     }

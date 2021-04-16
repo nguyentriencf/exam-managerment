@@ -5,7 +5,7 @@ CREATE PROCEDURE usp_getAllStudentBySubject
    @gradeId int
    as
    select * from Students 
-   where CurrentGradeId = @gradeId
+   where CurrentGradeId = 1 --@gradeId
 
    CREATE PROCEDURE usp_getGrade
    as

@@ -15,6 +15,8 @@ namespace FormServer
 {
     public partial class Server : Form
     {
+
+        public List<string> listIPArea = new List<string>();
        // ServerService server = new ServerService();
         IServerService _server;
         private List<PC> listUser = new List<PC>();
@@ -26,9 +28,7 @@ namespace FormServer
         System.Timers.Timer countdown;
 
         public Server(IServerService server)
-        {
-        
-            
+        {  
             _server = server;
             _server.EventUpdateHandler += _server_EventUpdateHandler;
             InitializeComponent();
@@ -58,22 +58,23 @@ namespace FormServer
           
         }
 
-        private void cmdBatDauLamBai_Click(object sender, EventArgs e)
-        {
-            counter = _server.BeginExam(txtThoiGianLamBai.Text,this.counter,countdown);
-        }
         private OpenFileDialog openFileDialog1;
+        string PathNameSubjectExam;
         // them de thi
 
         private void button3_Click(object sender, EventArgs e)
         {
+
             openFileDialog1 = new OpenFileDialog();
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 try
-                { 
-                    var PathName = openFileDialog1.FileName;
-                    _server.Send(PathName);
+                {
+                    PathNameSubjectExam = openFileDialog1.FileName;
+                    string fileName = Path.GetFileName(PathNameSubjectExam);
+
+                    lstDeThi.Items.Add(fileName);
+                    //_server.Send(PathName);
                 }
                 catch
                 {
@@ -81,13 +82,31 @@ namespace FormServer
                 }
             }
         }
+
+        private void cmdBatDauLamBai_Click(object sender, EventArgs e)
+        {
+            counter = _server.BeginExam(txtThoiGianLamBai.Text, this.counter, countdown);
+            string pathSubjectExam = PathNameSubjectExam;
+            _server.Send(pathSubjectExam);
+            MessageBox.Show("Bắt đầu tính thời gian làm bài kiểm tra");
+
+
+        }
         private void cmdChapNhan_Click(object sender, EventArgs e)
         {
-            if (cbChonMonThi.Text != string.Empty)
+           
+            if (cbChonMonThi.Text != string.Empty && txtThoiGianLamBai.Text != string.Empty && lstDeThi.Items.Count >0)
             {
-                _server.SendSubject(cbChonMonThi.Text);
+                cmdBatDauLamBai.Visible = true;
+                MessageBox.Show("Đã đầy đủ thông tin của bài thi");
+                //_server.SendSubject(cbChonMonThi.Text);     
             }
-            cmdBatDauLamBai.Visible = true;
+            else
+            {
+                MessageBox.Show("kiểm tra lai thông tin của bài kiểm tra");
+            }    
+          
+           
         }
         private void LoadDisPlayUser()
         {
@@ -161,6 +180,18 @@ namespace FormServer
         private void button9_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void cmdNhapVungIP_Click(object sender, EventArgs e)
+        {
+            InsertAreaIP insertAreaIP = new InsertAreaIP(listIPArea);
+            insertAreaIP.EventUpdateHandler += InsertAreaIP_EventUpdateHandler;
+            insertAreaIP.Show();
+        }
+
+        private void InsertAreaIP_EventUpdateHandler(object sender, InsertAreaIP.UpdateEventArgs args)
+        {
+            listIPArea = args.listIp;
         }
     }
 }

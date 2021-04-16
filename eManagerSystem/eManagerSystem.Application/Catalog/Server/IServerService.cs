@@ -35,5 +35,8 @@ namespace eManagerSystem.Application.Catalog.Server
         IEnumerable<Subject> getAllSubject();
         void SaveFile(byte[] data, int dataLength);
         int BeginExam(string inputTime, int counter, System.Timers.Timer countdown);
+        void CheckActiveUser(List<string> list, Socket client, string mssv, string ip);
+        void AcceptUserSuccess(string message, string ip, string mssv);
+        void AcceptUserNotSuccess(Socket client, string message);
     }
 }

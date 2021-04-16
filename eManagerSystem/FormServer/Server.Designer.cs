@@ -124,6 +124,7 @@
             this.cmdNhapVungIP.TabIndex = 46;
             this.cmdNhapVungIP.Text = "Nhập Vùng  IP";
             this.cmdNhapVungIP.UseVisualStyleBackColor = true;
+            this.cmdNhapVungIP.Click += new System.EventHandler(this.cmdNhapVungIP_Click);
             // 
             // cmdKichHoatAllClient
             // 
@@ -386,11 +387,6 @@
             // 
             this.lstDeThi.FormattingEnabled = true;
             this.lstDeThi.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lstDeThi.Items.AddRange(new object[] {
-            "\\\\192.168.6.1\\dethi\\de1.htm",
-            "\\\\192.168.6.1\\dethi\\de2.htm",
-            "\\\\192.168.6.1\\dethi\\de3.htm",
-            "\\\\192.168.6.3\\dethi\\de4.htm"});
             this.lstDeThi.Location = new System.Drawing.Point(7, 19);
             this.lstDeThi.Name = "lstDeThi";
             this.lstDeThi.Size = new System.Drawing.Size(240, 108);
