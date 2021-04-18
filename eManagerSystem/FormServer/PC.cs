@@ -23,6 +23,7 @@ namespace FormServer
         private Color _color;
         public string pcName { get { return _name; } set { _name = value; lbNamePC.Text = "PC " + value; } }
 
+        public string ipclient { get; set; }
         public string MSSV { get { return _MSSV; } set { _MSSV = value; lbMSSV.Text = value; } }
         public Color ColorUser
         {

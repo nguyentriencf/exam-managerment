@@ -25,3 +25,9 @@ C:\Users\ADMIN\OneDrive\Desktop\exam-managerment\exam-managerment\eManagerSystem
 C:\Users\ADMIN\OneDrive\Desktop\exam-managerment\exam-managerment\eManagerSystem\FormServer\obj\Debug\FormServer.PC.resources
 C:\Users\ADMIN\OneDrive\Desktop\exam-managerment\exam-managerment\eManagerSystem\FormServer\obj\Debug\FormServer.InsertAreaIP.resources
 C:\Users\ADMIN\OneDrive\Desktop\exam-managerment\exam-managerment\eManagerSystem\FormServer\obj\Debug\FormServer.frmMessageToAll.resources
+C:\Users\ADMIN\OneDrive\Desktop\exam-managerment\exam-managerment\eManagerSystem\FormServer\bin\Debug\LinqToExcel.dll
+C:\Users\ADMIN\OneDrive\Desktop\exam-managerment\exam-managerment\eManagerSystem\FormServer\bin\Debug\log4net.dll
+C:\Users\ADMIN\OneDrive\Desktop\exam-managerment\exam-managerment\eManagerSystem\FormServer\bin\Debug\Remotion.Data.Linq.dll
+C:\Users\ADMIN\OneDrive\Desktop\exam-managerment\exam-managerment\eManagerSystem\FormServer\bin\Debug\Remotion.dll
+C:\Users\ADMIN\OneDrive\Desktop\exam-managerment\exam-managerment\eManagerSystem\FormServer\bin\Debug\Remotion.Interfaces.dll
+C:\Users\ADMIN\OneDrive\Desktop\exam-managerment\exam-managerment\eManagerSystem\FormServer\bin\Debug\LinqToExcel.xml

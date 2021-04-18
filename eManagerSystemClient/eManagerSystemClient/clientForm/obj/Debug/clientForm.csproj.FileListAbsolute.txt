@@ -34,3 +34,8 @@ C:\Users\ADMIN\OneDrive\Desktop\exam-managerment\exam-managerment\eManagerSystem
 C:\Users\ADMIN\OneDrive\Desktop\exam-managerment\exam-managerment\eManagerSystemClient\eManagerSystemClient\clientForm\obj\Debug\clientForm.csproj.CopyComplete
 C:\Users\ADMIN\OneDrive\Desktop\exam-managerment\exam-managerment\eManagerSystemClient\eManagerSystemClient\clientForm\obj\Debug\clientForm.exe
 C:\Users\ADMIN\OneDrive\Desktop\exam-managerment\exam-managerment\eManagerSystemClient\eManagerSystemClient\clientForm\obj\Debug\clientForm.pdb
+C:\Users\ADMIN\OneDrive\Desktop\exam-managerment\exam-managerment\eManagerSystemClient\eManagerSystemClient\clientForm\obj\Debug\clientForm.Message.resources
+C:\Users\ADMIN\OneDrive\Desktop\exam-managerment\exam-managerment\eManagerSystemClient\eManagerSystemClient\clientForm\bin\Debug\LinqToExcel.dll
+C:\Users\ADMIN\OneDrive\Desktop\exam-managerment\exam-managerment\eManagerSystemClient\eManagerSystemClient\clientForm\bin\Debug\Remotion.Data.Linq.dll
+C:\Users\ADMIN\OneDrive\Desktop\exam-managerment\exam-managerment\eManagerSystemClient\eManagerSystemClient\clientForm\bin\Debug\log4net.dll
+C:\Users\ADMIN\OneDrive\Desktop\exam-managerment\exam-managerment\eManagerSystemClient\eManagerSystemClient\clientForm\bin\Debug\LinqToExcel.xml

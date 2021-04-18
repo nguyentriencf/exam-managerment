@@ -27,10 +27,10 @@ namespace FormServer
             public List<string> listIp { get; set; }
 
         }
-        public void Updates(string MSSV)
+        public void Updates(string ip)
         {
             UpdateEventArgs args = new UpdateEventArgs();
-
+           
             args.listIp = _listIpArea;
             EventUpdateHandler.Invoke(this, args);
 
@@ -39,7 +39,9 @@ namespace FormServer
 
         private void btnIPAreaIP_Click(object sender, EventArgs e)
         {
-            ValidateIP(); 
+            
+            ValidateIP();
+            Updates(tbAreaIP.Text);
         }
         public void ValidateIP()
         {

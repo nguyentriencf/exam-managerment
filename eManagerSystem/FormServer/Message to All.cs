@@ -14,17 +14,17 @@ namespace FormServer
     public partial class frmMessageToAll : Form
     {
         IServerService _server;
-        List<string> listMess;
-        public frmMessageToAll(IServerService server, List<string> list)
+      
+        public frmMessageToAll(IServerService server)
         {
             _server = server;
-            listMess = list;
+         
             InitializeComponent();
         }
 
         private void btnSendMessage_Click(object sender, EventArgs e)
         {
-            _server.SendMessasge(txtContentMessage.Text,listMess,lvMessage);
+            _server.SendMessasge(txtContentMessage.Text,lvMessage);
         }
     }
 }

@@ -14,6 +14,7 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using eManagerSystem.Application.Catalog.Commom;
 using eManagerSystem.Application;
+using System.Diagnostics;
 
 namespace clientForm
 {
@@ -116,9 +117,32 @@ namespace clientForm
                             var userList = (List<Students>)serverReponse.DataResponse;
                             SetData(userList);
                             break;
-                        case ServerResponseType.SendSubject:
+                        case ServerResponseType.sendDe:
                             var subject = (string)serverReponse.DataResponse;
                             SetSubject(subject);
+                            break;
+                        case ServerResponseType.senMessage:
+                            var message = (string)serverReponse.DataResponse;
+                            MessageBox.Show(message,"Tin nhắn từ giáo viên");
+                            break;
+                        //case ServerResponseType.sendfileexcel:
+                        //    var userListexcel = (List<studentFromExcels>)serverReponse.DataResponse;
+
+
+
+                        //    break;
+                        case ServerResponseType.SendActiveControl:
+                            this.Invoke(new Action(() => {
+                                cmdChapNhan.Enabled = true;
+                                checkNopBaiThi();
+                                cbDSThi.Enabled = true;
+                                // cmdKetNoi.Enabled = true;
+
+                            }));
+                            break;
+                        case ServerResponseType.CloseClient:
+                            this.Invoke(new Action(() => { LogOutuser(); }));
+                         
                             break;
                         default:
                             break;
@@ -131,8 +155,9 @@ namespace clientForm
                Close();
             }
         }
-        delegate void SetTextCallback(string text);
 
+        delegate void SetTextCallback(string text);
+        
         private void SetSubject(string text)
         {
             // InvokeRequired required compares the thread ID of the
@@ -387,6 +412,35 @@ namespace clientForm
                 }
 
             }
+        }
+        delegate void SetDataSourceCallBackExcel(List<studentFromExcels> students);
+
+        private void SetDataExcel(List<studentFromExcels> students)
+        {
+
+            if (this.cbDSThi.InvokeRequired)
+            {
+                SetDataSourceCallBackExcel d = new SetDataSourceCallBackExcel(SetDataExcel);
+                this.Invoke(d, new object[] { students });
+            }
+            else
+            {
+                this.cbDSThi.DataSource = students;
+                this.cbDSThi.DisplayMember = "FullName";
+                this.cbDSThi.ValueMember = "MSSV";
+            }
+        }
+        void checkNopBaiThi()
+        {
+            if (lblThoiGianConLai.Text != string.Empty && lblDeThi.Text != string.Empty)
+            {
+                cmdNopBaiThi.Enabled = false;
+            }
+        }
+        public void LogOutuser()
+        {
+            Process.Start(@"C:\WINDOWS\system32\rundll32.exe", "user32.dll,LockWorkStation");
+          //  client.Close();
         }
     }
 

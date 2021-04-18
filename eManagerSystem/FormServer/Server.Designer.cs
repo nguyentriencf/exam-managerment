@@ -134,6 +134,7 @@
             this.cmdKichHoatAllClient.TabIndex = 45;
             this.cmdKichHoatAllClient.Text = "Kích Hoạt Tất Cả Client";
             this.cmdKichHoatAllClient.UseVisualStyleBackColor = true;
+            this.cmdKichHoatAllClient.Click += new System.EventHandler(this.cmdKichHoatAllClient_Click);
             // 
             // cmdBatDauLamBai
             // 
@@ -193,6 +194,7 @@
             this.button4.TabIndex = 40;
             this.button4.Text = "Disconnect";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // groupBox5
             // 
@@ -291,7 +293,7 @@
             this.txtClientPath.Name = "txtClientPath";
             this.txtClientPath.Size = new System.Drawing.Size(120, 20);
             this.txtClientPath.TabIndex = 34;
-            this.txtClientPath.Text = "D:/";
+            this.txtClientPath.Text = "D:\\";
             // 
             // txtServerPath
             // 

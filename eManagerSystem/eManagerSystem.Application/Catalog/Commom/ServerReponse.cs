@@ -20,7 +20,12 @@ namespace eManagerSystem.Application.Catalog.Commom
         FinishExam,
         LockClient,
         SendSubject,
-       SendAcceptUser
+       SendAcceptUser,
+       sendfileexcel,
+       SendActiveControl,
+            CloseClient,
+            sendDe
+
     }
     [Serializable]
     public class ServerReponse

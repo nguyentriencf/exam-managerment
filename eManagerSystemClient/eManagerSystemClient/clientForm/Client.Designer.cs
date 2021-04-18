@@ -251,6 +251,7 @@
             // 
             // cmdChapNhan
             // 
+            this.cmdChapNhan.Enabled = false;
             this.cmdChapNhan.Location = new System.Drawing.Point(285, 42);
             this.cmdChapNhan.Name = "cmdChapNhan";
             this.cmdChapNhan.Size = new System.Drawing.Size(75, 23);
@@ -261,6 +262,7 @@
             // 
             // cbDSThi
             // 
+            this.cbDSThi.Enabled = false;
             this.cbDSThi.FormattingEnabled = true;
             this.cbDSThi.Location = new System.Drawing.Point(11, 44);
             this.cbDSThi.Name = "cbDSThi";

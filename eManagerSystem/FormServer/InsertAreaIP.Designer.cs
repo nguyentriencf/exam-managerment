@@ -54,7 +54,7 @@
             // 
             // tbAreaIP
             // 
-            this.tbAreaIP.Location = new System.Drawing.Point(115, 52);
+            this.tbAreaIP.Location = new System.Drawing.Point(121, 52);
             this.tbAreaIP.Name = "tbAreaIP";
             this.tbAreaIP.Size = new System.Drawing.Size(153, 20);
             this.tbAreaIP.TabIndex = 2;

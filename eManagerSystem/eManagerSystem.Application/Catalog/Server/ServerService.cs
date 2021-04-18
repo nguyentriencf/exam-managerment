@@ -25,6 +25,7 @@ namespace eManagerSystem.Application.Catalog.Server
         IPEndPoint IP;
         Socket server;
         List<Socket> clientList;
+        List<string> clientIP;
         ServerReponse serverReponse = new ServerReponse();
         private readonly string strCon = @"SERVER=DESKTOP-UPDAPIH\SQLEXPRESS01;Database=ExamManagernent;Integrated security =true";
 
@@ -118,6 +119,7 @@ namespace eManagerSystem.Application.Catalog.Server
             catch (Exception er)
             {
                 //throw er;
+
                  Close();
             }
         }
@@ -375,19 +377,17 @@ namespace eManagerSystem.Application.Catalog.Server
             
         }
 
-        public void SendMessasge(string message, List<string>IPArea, ListView listMess)
+        public void SendMessasge(string message,ListView listMess)
         {
             foreach (Socket client in clientList)
-            {
-                string ipuser = client.RemoteEndPoint.ToString().Split(':')[0];
+            { 
 
-                if (IPArea.Any(p => p == ipuser))
-                {
+                
                     serverReponse.Type = ServerResponseType.senMessage;
                     serverReponse.DataResponse = message;
                     client.Send(Serialize(serverReponse));
                     AddMessage(message, listMess);
-                }
+                
                 
             }
            
@@ -397,7 +397,59 @@ namespace eManagerSystem.Application.Catalog.Server
         {
             listMess.Items.Add(new ListViewItem() { Text = ms });
         }
+        public void SendActiveControl()
+        {
+            foreach (Socket client in clientList)
+            {
+                serverReponse.Type = ServerResponseType.SendActiveControl;
+                serverReponse.DataResponse = "acept";
+                client.Send(Serialize(serverReponse));
+            }
+            
+            
+            
+        }
+        public void SendUserFromFile(string option, IEnumerable<object> students)
+        {
+            foreach (Socket client in clientList)
+            {
+                if (option != String.Empty)
+                {
+                    serverReponse.Type = ServerResponseType.sendfileexcel;
+                    serverReponse.DataResponse = students;
+                    client.Send(Serialize(serverReponse));
+                }
+            }
+        }
 
-    
+        public void DisconectClient()
+        {
+            foreach (Socket client in clientList)
+            {
+                string messClose = "disconnet";
+                serverReponse.Type = ServerResponseType.CloseClient;
+                serverReponse.DataResponse = messClose;
+                client.Send(Serialize(serverReponse));
+              
+              
+            }
+        }
+        public void SetIpUser(List<string> listIP)
+        {
+            clientIP = new List<string>(listIP);
+        }
+
+        public void sendDe(string namede)
+        {
+            foreach (Socket client in clientList)
+            {
+                serverReponse.Type = ServerResponseType.sendDe;
+                serverReponse.DataResponse = namede;
+                client.Send(Serialize(serverReponse));
+            }
+        }
+
+ 
+
     }
 }

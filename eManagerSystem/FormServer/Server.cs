@@ -10,12 +10,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using eManagerSystem.Application;
 using eManagerSystem.Application.Catalog.Server;
+using LinqToExcel;
 
 namespace FormServer
 {
     public partial class Server : Form
     {
 
+        List<studentFromExcels> studentFromExcels;
         public List<string> listIPArea = new List<string>();
        // ServerService server = new ServerService();
         IServerService _server;
@@ -86,6 +88,7 @@ namespace FormServer
         private void cmdBatDauLamBai_Click(object sender, EventArgs e)
         {
             counter = _server.BeginExam(txtThoiGianLamBai.Text, this.counter, countdown);
+            _server.sendDe(cbChonMonThi.Text);
             string pathSubjectExam = PathNameSubjectExam;
             _server.Send(pathSubjectExam);
             MessageBox.Show("Bắt đầu tính thời gian làm bài kiểm tra");
@@ -108,15 +111,7 @@ namespace FormServer
           
            
         }
-        private void LoadDisPlayUser()
-        {
-            flowLayoutContainer.Controls.Clear();
-            for (int i = 0; i < listUser.Count; i++)
-            {
-                flowLayoutContainer.Controls.Add(listUser[i]);
-
-            }
-        }
+    
         //private void AddListUser(List<Students> students)
         //{
         //    if (students.Count > 0)
@@ -144,14 +139,23 @@ namespace FormServer
                 {
                     index++;
                     PC pC = new PC();
-
-                    pC.MSSV = items.ToString();
+                    pC.ipclient = items;
+               
                     pC.pcName = index.ToString();
                     pC.ColorUser = ColorRed;
                     listUser.Add(pC);
                 }
             }
 
+        }
+        private void LoadDisPlayUser()
+        {
+            flowLayoutContainer.Controls.Clear();
+            for (int i = 0; i < listUser.Count; i++)
+            {
+                flowLayoutContainer.Controls.Add(listUser[i]);
+
+            }
         }
         private void UpdateUserControll(string mssv)
         {
@@ -181,8 +185,8 @@ namespace FormServer
 
         private void Open_EventUpdateHandler(object sender, OpenDSSV.UpdateEventArgs args)
         {
-            _students = args.studentsDelegate;
-            AddListUser(listIPArea);
+           
+            _students = args.studentsDelegate;      
             LoadDisPlayUser();
             _server.SendUser(_students);
         }
@@ -198,7 +202,33 @@ namespace FormServer
 
         private void button9_Click(object sender, EventArgs e)
         {
+            OpenFileDialog oFile = new OpenFileDialog();
+            oFile.ShowDialog();
+            if (oFile.FileName != string.Empty)
+            {
+                string file = oFile.FileName;
+                string exetention = Path.GetExtension(file);
+                if (exetention.ToLower() == ".xls" || exetention.ToLower().Equals(".xlsx"))
+                {
+                    var excel = new ExcelQueryFactory(file);
+                    var students = from s in excel.Worksheet<studentFromExcels>("Sheet1")
+                                   select s;
+                    studentFromExcels = new List<studentFromExcels>();
+                    foreach (var item in students)
+                    {
+                        studentFromExcels.Add(item);
+                    }
+                    if (studentFromExcels.Count > 0)
+                    {
+                        SendStudentsFromExcel(studentFromExcels);
+                    }
+                }
 
+            }
+        }
+        private void SendStudentsFromExcel(List<studentFromExcels> StudentFromExcels)
+        {
+            _server.SendUserFromFile("Send UserFromExcel", StudentFromExcels);
         }
 
         private void cmdNhapVungIP_Click(object sender, EventArgs e)
@@ -206,17 +236,30 @@ namespace FormServer
             InsertAreaIP insertAreaIP = new InsertAreaIP(listIPArea);
             insertAreaIP.EventUpdateHandler += InsertAreaIP_EventUpdateHandler;
             insertAreaIP.Show();
+        
         }
 
         private void InsertAreaIP_EventUpdateHandler(object sender, InsertAreaIP.UpdateEventArgs args)
         {
             listIPArea = args.listIp;
+            AddListUser(listIPArea);
+            LoadDisPlayUser();
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            var messageToAll = new frmMessageToAll(_server, listIPArea);
+            var messageToAll = new frmMessageToAll(_server);
             messageToAll.Show();
+        }
+
+        private void cmdKichHoatAllClient_Click(object sender, EventArgs e)
+        {
+            _server.SendActiveControl();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            _server.DisconectClient();
         }
     }
 }
