@@ -17,3 +17,16 @@ C:\Users\ADMIN\OneDrive\Desktop\exam-managerment\exam-managerment\eManagerSystem
 C:\Users\ADMIN\OneDrive\Desktop\exam-managerment\exam-managerment\eManagerSystem\eManagerSystem.Application\bin\Debug\Remotion.Interfaces.dll
 C:\Users\ADMIN\OneDrive\Desktop\exam-managerment\exam-managerment\eManagerSystem\eManagerSystem.Application\bin\Debug\LinqToExcel.xml
 C:\Users\ADMIN\OneDrive\Desktop\exam-managerment\exam-managerment\eManagerSystem\eManagerSystem.Application\obj\Debug\eManagerSystem.Application.csproj.CopyComplete
+C:\Users\ADMIN\OneDrive\Desktop\exam-managerment\eManagerSystem\eManagerSystem.Application\bin\Debug\eManagerSystem.Application.dll
+C:\Users\ADMIN\OneDrive\Desktop\exam-managerment\eManagerSystem\eManagerSystem.Application\bin\Debug\eManagerSystem.Application.pdb
+C:\Users\ADMIN\OneDrive\Desktop\exam-managerment\eManagerSystem\eManagerSystem.Application\bin\Debug\LinqToExcel.dll
+C:\Users\ADMIN\OneDrive\Desktop\exam-managerment\eManagerSystem\eManagerSystem.Application\bin\Debug\log4net.dll
+C:\Users\ADMIN\OneDrive\Desktop\exam-managerment\eManagerSystem\eManagerSystem.Application\bin\Debug\Remotion.Data.Linq.dll
+C:\Users\ADMIN\OneDrive\Desktop\exam-managerment\eManagerSystem\eManagerSystem.Application\bin\Debug\Remotion.dll
+C:\Users\ADMIN\OneDrive\Desktop\exam-managerment\eManagerSystem\eManagerSystem.Application\bin\Debug\Remotion.Interfaces.dll
+C:\Users\ADMIN\OneDrive\Desktop\exam-managerment\eManagerSystem\eManagerSystem.Application\bin\Debug\LinqToExcel.xml
+C:\Users\ADMIN\OneDrive\Desktop\exam-managerment\eManagerSystem\eManagerSystem.Application\obj\Debug\eManagerSystem.Application.csprojAssemblyReference.cache
+C:\Users\ADMIN\OneDrive\Desktop\exam-managerment\eManagerSystem\eManagerSystem.Application\obj\Debug\eManagerSystem.Application.csproj.CoreCompileInputs.cache
+C:\Users\ADMIN\OneDrive\Desktop\exam-managerment\eManagerSystem\eManagerSystem.Application\obj\Debug\eManagerSystem.Application.csproj.CopyComplete
+C:\Users\ADMIN\OneDrive\Desktop\exam-managerment\eManagerSystem\eManagerSystem.Application\obj\Debug\eManagerSystem.Application.dll
+C:\Users\ADMIN\OneDrive\Desktop\exam-managerment\eManagerSystem\eManagerSystem.Application\obj\Debug\eManagerSystem.Application.pdb
